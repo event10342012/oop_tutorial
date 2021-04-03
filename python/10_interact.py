@@ -4,6 +4,8 @@ class Product:
         self.type_no = type_no
         self.price = price
 
+
+class Phone(Product):
     def call(self, people, message):
         print('Hi', people.name)
         print(message, 'from', self.type_no)
@@ -58,7 +60,7 @@ if __name__ == '__main__':
     leo = People(name='Leo', age=27, gender='m', cash=150)
     john = People(name='John', age=25, gender='m', cash=150)
 
-    iphone = Product(brand='Iphone', type_no='IphoneX', price=150)
+    iphone = Phone(brand='Iphone', type_no='IphoneX', price=150)
 
     iphone_store = Store(name='IphoneStore', cash=1000, income=0)
     iphone_store.purchase(5, iphone)
