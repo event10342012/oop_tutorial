@@ -24,19 +24,19 @@ class PhoneStore:
 
 
 class People:
-    def __init__(self, name: str, age: int, gender: str, balanced: int):
+    def __init__(self, name: str, age: int, gender: str, cash: int):
         self.name = name
         self.age = age
         self.gender = gender
-        self.balanced = balanced
+        self.cash = cash
         self.phone = None
 
     def buy_phone(self, store: PhoneStore):
         if len(store.stock) > 0:
             phone = store.stock.pop()
-            if phone.price < self.balanced:
+            if phone.price < self.cash:
                 self.phone = phone
-                self.balanced -= phone.price
+                self.cash -= phone.price
             else:
                 store.stock.append(phone)
                 print('You cannot afford it!!!')
@@ -51,8 +51,8 @@ class People:
 
 
 if __name__ == '__main__':
-    leo = People(name='Leo', age=27, gender='m', balanced=100)
-    john = People(name='John', age=25, gender='m', balanced=150)
+    leo = People(name='Leo', age=27, gender='m', cash=100)
+    john = People(name='John', age=25, gender='m', cash=150)
 
     iphone = Phone(brand='Iphone', type_no='IphoneX', price=150)
 
